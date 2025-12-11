@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Todo App</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #1f1c2c, #928dab);
+            min-height: 100vh;
+            color: #f8f9fa;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .navbar-custom {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(6px);
+        }
+
+        .hero-card {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(8px);
+        }
+
+        .btn-custom {
+            border-radius: 50px;
+            font-weight: 600;
+            padding: 10px 25px;
+            transition: 0.3s;
+        }
+
+        .btn-custom:hover {
+            transform: translateY(-3px);
+        }
+
+        .glow-title {
+            font-size: 3rem;
+            font-weight: 700;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-custom p-3">
+        <div class="container-fluid d-flex justify-content-center">
+            <h3 class="text-light m-0">📝 Todo App</h3>
+        </div>
+    </nav>
+
+    <div class="container d-flex justify-content-center align-items-center mt-5">
+        <div class="hero-card text-center w-100" style="max-width: 600px;">
+            <h1 class="glow-title mb-4">Organize Your Day</h1>
+            <p class="lead mb-4">Manage your tasks effortlessly with a clean and modern interface.</p>
+
+            <div class="d-flex justify-content-center flex-wrap gap-3 mt-4">
+                <a href="/addTodo" class="btn btn-light btn-custom">➕ Add Todo</a>
+                <a href="/viewTodo" class="btn btn-warning btn-custom">📄 View Todos</a>
+                <a href="/service" class="btn btn-info btn-custom">⚙️ Service Page</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

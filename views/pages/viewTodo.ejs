@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Todo</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    
+    <style>
+        body {
+            background: linear-gradient(135deg, #1f1c2c, #928dab);
+            color: #fff;
+            min-height: 100vh;
+            font-family: 'Poppins', sans-serif;
+            padding: 20px;
+        }
+
+        .title-glow {
+            font-size: 2.3rem;
+            font-weight: 700;
+            text-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
+        }
+
+        .card-custom {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 18px;
+            padding: 25px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-add {
+            background: #00e0ff;
+            border-radius: 50px;
+            border: none;
+            padding: 10px 20px;
+            font-weight: 600;
+            transition: 0.3s;
+            color: #000;
+        }
+
+        .btn-add:hover {
+            background: #33eaff;
+            transform: translateY(-3px);
+        }
+
+        table {
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .table-dark {
+            background: rgba(255, 255, 255, 0.1) !important;
+        }
+
+        .table-dark th {
+            background: rgba(255, 255, 255, 0.15) !important;
+        }
+
+        a.back-link {
+            color: #00e0ff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        a.back-link:hover {
+            color: #33eaff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container mt-4">
+
+        <h2 class="title-glow mb-4">📋 All Todos</h2>
+
+        <a href="/addTodo" class="btn btn-add mb-4">+ Add New Todo</a>
+
+        <% if (todos.length===0) { %>
+            <div class="card-custom text-center p-4">
+                <h4 class="mb-0">No todos found.</h4>
+            </div>
+            <% } else { %>
+
+                <div class="card-custom">
+                    <table class="table table-dark table-hover text-light align-middle">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Task</th>
+                                <th>Priority</th>
+                                <th class="text-center">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% todos.forEach((todo, index)=> { %>
+                                <tr>
+                                    <td>
+                                        <%= todo.name %>
+                                    </td>
+                                    <td>
+                                        <%= todo.description %>
+                                    </td>
+                                    <td>
+                                        <%= todo.task %>
+                                    </td>
+                                    <td>
+                                        <%= todo.priority %>
+                                    </td>
+                                    <td class="text-center">
+                                        <a class="btn btn-warning btn-sm px-3" href="/edit/<%= index %>">Edit</a>
+                                        <a class="btn btn-danger btn-sm px-3" href="/delete/<%= index %>">Delete</a>
+                                    </td>
+                                </tr>
+                                <% }) %>
+                        </tbody>
+                    </table>
+                </div>
+
+                <% } %>
+
+                    <a href="/" class="back-link d-block mt-3">⬅ Back Home</a>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

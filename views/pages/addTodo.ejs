@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Todo</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+
+    <style>
+        body {
+            /* background: linear-gradient(135deg, #141e30, #243b55); */
+            background: linear-gradient(135deg, #1f1c2c, #928dab);
+            min-height: 100vh;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .card-custom {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 35px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(8px);
+        }
+
+        .title-glow {
+            font-size: 2rem;
+            text-align: center;
+            font-weight: 700;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+        }
+
+        .btn-custom {
+            background: #00d4ff;
+            border: none;
+            padding: 12px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-custom:hover {
+            transform: translateY(-3px);
+            background: #05e1ff;
+        }
+
+        a {
+            color: #00d4ff;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        a:hover {
+            color: #05e1ff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card-custom">
+        <h2 class="title-glow">Add a New Todo</h2>
+
+        <form action="/addtodo" method="POST" class="mt-4">
+            <div class="mb-3">
+                <label class="form-label">Todo Name</label>
+                <input type="text" class="form-control p-3" name="todos" placeholder="Enter Todo..." required>
+            </div>
+
+            <button type="submit" class="btn btn-custom w-100 mt-2">➕ Add Todo</button>
+        </form>
+
+        <div class="text-center mt-3">
+            <a href="/viewTodo">⬅ Back</a>
+        </div>
+    </div>
+
+</body>
+
+</html>

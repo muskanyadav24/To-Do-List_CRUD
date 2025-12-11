@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Todo</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+
+    <style>
+        body {
+            /* background: linear-gradient(135deg, #0f0c29, #302b63, #24243e); */
+            background: linear-gradient(135deg, #1f1c2c, #928dab);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+        }
+/* 
+        body {
+            background: linear-gradient(135deg, #1f1c2c, #928dab);
+            min-height: 100vh;
+            color: #f8f9fa;
+            font-family: 'Poppins', sans-serif;
+        } */
+
+        .card-custom {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 35px;
+            width: 100%;
+            max-width: 550px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+        }
+
+        .title-glow {
+            font-size: 2.2rem;
+            font-weight: 700;
+            text-align: center;
+            text-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
+            margin-bottom: 20px;
+        }
+
+        .form-control,
+        .form-select {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #000000;
+        }
+
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .btn-custom {
+            background: #00e0ff;
+            border: none;
+            padding: 12px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: 0.3s;
+            color: #000;
+        }
+
+        .btn-custom:hover {
+            transform: translateY(-3px);
+            background: #33eaff;
+        }
+
+        a {
+            color: #00e0ff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #33eaff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card-custom">
+        <h2 class="title-glow">Edit Todo</h2>
+
+        <form action="/update/<%= id %>" method="POST">
+
+            <label class="form-label">Todo Name</label>
+            <input type="text" class="form-control mb-3 p-3" name="todos" value="<%= todo.name %>" >
+
+            <label class="form-label">Description</label>
+            <input type="text" class="form-control mb-3 p-3" name="description" value="<%= todo.description %>">
+
+            <label class="form-label">Task Status</label>
+            <select class="form-select mb-3 p-3" name="task">
+                <option value="incomplete" <%=todo.task==='incomplete' ? 'selected' : '' %>>Incomplete</option>
+                <option value="complete" <%=todo.task==='complete' ? 'selected' : '' %>>Complete</option>
+            </select>
+
+            <label class="form-label">Priority</label>
+            <select class="form-select mb-3 p-3" name="priority">
+                <option value="high" <%=todo.priority==='high' ? 'selected' : '' %>>High</option>
+                <option value="medium" <%=todo.priority==='medium' ? 'selected' : '' %>>Medium</option>
+                <option value="low" <%=todo.priority==='low' ? 'selected' : '' %>>Low</option>
+            </select>
+
+            <button type="submit" class="btn btn-custom w-100 mt-2">✔ Update Todo</button>
+        </form>
+
+        <div class="text-center mt-3">
+            <a href="/viewTodo">⬅ Back</a>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
