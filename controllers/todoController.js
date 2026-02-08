@@ -59,3 +59,5 @@ const deleteTodo = (req, res) => {
 const service = (req, res) => {
     res.render('./pages/service');
 };
+
+module.exports = {home, addTodoPage, viewTodos, addTodo, editTodoPage, updateTodo, deleteTodo, service}
